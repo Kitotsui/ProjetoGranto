@@ -26,6 +26,46 @@ body {
     @apply max-w-2xl mx-auto mt-10 p-8 bg-[#0e151a] text-white rounded-lg shadow-md;
 }
 
+.hero {
+    @apply text-center py-20;
+}
+
+.hero h1 {
+    @apply text-4xl font-bold mb-4;
+}
+
+.hero p {
+    @apply text-lg text-gray-400 mb-6;
+}
+
+.hero .button {
+    @apply bg-[#2b452b] text-white px-4 py-2 rounded-lg hover:bg-[#322d70] transition-all duration-300;
+}
+
+.stats {
+    @apply flex justify-around py-10 bg-[#0e151a] rounded-lg my-10;
+}
+
+.stats div {
+    @apply text-center;
+}
+
+.stats h2 {
+    @apply text-2xl font-bold;
+}
+
+.stats p {
+    @apply text-gray-400;
+}
+
+.gallery {
+    @apply flex justify-around py-10;
+}
+
+.gallery img {
+    @apply rounded-lg shadow-lg;
+}
+
 .button {
     @apply bg-[#2b452b] text-white px-4 py-2 rounded-lg hover:bg-[#322d70] transition-all duration-300;
 }

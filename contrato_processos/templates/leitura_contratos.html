@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRANTO - Leitura de Contratos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="flex items-center space-x-8">
+                <h1 class="text-2xl font-bold">GRANTO</h1>
+                <nav class="navbar">
+                    <a href="{{ url_for('index') }}">Página Inicial</a>
+                    <a href="{{ url_for('leitura_contratos') }}">Leitura de Contratos</a>
+                    <a href="#">Sobre Nós</a>
+                </nav>
+            </div>
+            <div>
+                <a href="#" class="text-white hover:text-gray-400 transition-colors duration-300">Entrar/Criar Conta</a>
+            </div>
+        </div>
+    </header>
+    <main class="container-main">
+        <div class="text-center mb-6">
+            <h2 class="text-xl font-semibold">Entenda seus contratos em poucas palavras</h2>
+            <p class="text-gray-400">Destacando as informações essenciais e atendendo às suas necessidades de leitura com IA.</p>
+        </div>
+        <form id="upload-form" action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data" class="text-center">
+            <div id="upload-area" class="mb-4">
+                <label for="file" id="file-label">Carregar um PDF</label>
+                <input type="file" name="file" id="file" class="hidden" required>
+                <p class="mt-2 text-gray-400">Ou arraste um arquivo</p>
+            </div>
+            <button type="submit" class="button">Faça o upload</button>
+        </form>
+        
+    </main>
+    <footer class="footer">
+        <p>&copy; 2024 Gradiente</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

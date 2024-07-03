@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Processar Contrato</title>
+    <title>GRANTO - Página Inicial</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <header class="header">
         <div class="container">
             <div class="flex items-center space-x-8">
-                <h1 class="text-2xl font-bold">GRADIENTE</h1>
+                <h1 class="text-2xl font-bold">GRANTO</h1>
                 <nav class="navbar">
-                    <a href="#">Página Inicial</a>
-                    <a href="#">Leitura de Contratos</a>
+                    <a href="{{ url_for('index') }}">Página Inicial</a>
+                    <a href="{{ url_for('leitura_contratos') }}">Leitura de Contratos</a>
                     <a href="#">Sobre Nós</a>
                 </nav>
             </div>
@@ -23,21 +23,33 @@
         </div>
     </header>
     <main class="container-main">
-        <div class="text-center mb-6">
-            <h2 class="text-xl font-semibold">Entenda seus contratos em poucas palavras</h2>
-            <p class="text-gray-400">Destacando as informações essenciais e atendendo às suas necessidades de leitura com IA.</p>
-        </div>
-        <form id="upload-form" action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data" class="text-center">
-            <div id="upload-area" class="mb-4">
-                <label for="file" id="file-label">Carregar um PDF</label>
-                <input type="file" name="file" id="file" class="hidden" required>
-                <p class="mt-2 text-gray-400">Ou arraste um arquivo</p>
+        <section class="hero text-center py-20">
+            <h1 class="text-4xl font-bold mb-4">Simplifique seu tempo</h1>
+            <p class="text-lg text-gray-400 mb-6">Entenda seus contratos em poucas palavras</p>
+            <button class="button">Saiba Mais</button>
+        </section>
+        <section class="stats flex justify-around py-10 bg-[#0e151a] rounded-lg my-10">
+            <div class="text-center">
+                <h2 class="text-2xl font-bold">500+</h2>
+                <p class="text-gray-400">Horas de Leitura Economizadas</p>
             </div>
-            <button type="submit" class="button">Faça o upload</button>
-        </form>
+            <div class="text-center">
+                <h2 class="text-2xl font-bold">85+</h2>
+                <p class="text-gray-400">Setores de Atuação</p>
+            </div>
+            <div class="text-center">
+                <h2 class="text-2xl font-bold">100%</h2>
+                <p class="text-gray-400">Automático e de Graça</p>
+            </div>
+        </section>
+        <section class="gallery flex justify-around py-10">
+            <img src="{{ url_for('static', filename='images/gallery1.jpg') }}" alt="Gallery Image 1" class="rounded-lg shadow-lg">
+            <img src="{{ url_for('static', filename='images/gallery2.jpg') }}" alt="Gallery Image 2" class="rounded-lg shadow-lg">
+            <img src="{{ url_for('static', filename='images/gallery3.jpg') }}" alt="Gallery Image 3" class="rounded-lg shadow-lg">
+        </section>
     </main>
     <footer class="footer">
-        <p>&copy; 2024 Grupo Gradiente</p>
+        <p>&copy; 2024 Gradiente</p>
     </footer>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>

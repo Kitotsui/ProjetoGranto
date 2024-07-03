@@ -1,30 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado do Processamento</title>
-    <link href="/static/css/output.css" rel="stylesheet">
-
+    <title>GRANTO - Resultados</title>    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body class="bg-gray-100">
-    <header class="bg-gray-800 text-white p-4 text-center">
-        <h1 class="text-3xl">Resultado do Processamento</h1>
-    </header>
-    <div class="container mx-auto mt-10 p-4 bg-white shadow-md rounded-md">
-        <h2 class="text-2xl font-bold mb-4">Informações Extraídas</h2>
-        <div class="p-4 border border-gray-300 rounded-md mb-4">
-            <p><strong>CNPJs:</strong> {{ result['cnpjs'] }}</p>
-            <p><strong>Valores Numéricos:</strong> {{ result['valores'] }}</p>
-            <p><strong>Classificação:</strong> {{ result['classificacao'] }}</p>
-            <p><strong>Empresa Contratante:</strong> {{ result['empresa_contratante'] }}</p>
-            <p><strong>Empresa Contratada:</strong> {{ result['empresa_contratada'] }}</p>
-            <p><strong>Vigência do Contrato:</strong> {{ result['vigencia_contrato'] }}</p>
+<body>
+    <header class="header py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">GRANTO</h1>
+            <nav class="navbar flex space-x-8">
+                <a href="/" class="text-white hover:text-gray-400 transition-colors duration-300">Página Inicial</a>
+                <a href="/leitura_contratos" class="text-white hover:text-gray-400 transition-colors duration-300">Leitura de Contratos</a>
+                <a href="#" class="text-white hover:text-gray-400 transition-colors duration-300">Sobre Nós</a>
+            </nav>
+            <a href="#" class="text-white hover:text-gray-400 transition-colors duration-300">Entrar/Criar Conta</a>
         </div>
-        <a href="{{ url_for('index') }}" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700">Voltar</a>
-    </div>
-    <footer class="bg-gray-800 text-white p-4 text-center mt-10">
-        <p>&copy; 2024 Seu Nome</p>
+    </header>
+    <main class="container mx-auto mt-10 p-8 bg-[#0e151a] text-white rounded-lg shadow-md">
+        <div class="text-center mb-6">
+            <h2 class="text-xl font-semibold">Resultados da Análise</h2>
+            <p class="text-lg text-gray-400 mb-4">Arquivo: {{ result.filename }}</p>
+        </div>
+        <div>
+            <h3 class="text-lg font-medium">CNPJs:</h3>
+            <ul class="list-disc pl-6 text-gray-400">
+                {% for cnpj in result.cnpjs %}
+                    <li>{{ cnpj }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="mt-4">
+            <h3 class="text-lg font-medium">Valores:</h3>
+            <ul class="list-disc pl-6 text-gray-400">
+                {% for valor in result.valores %}
+                    <li>{{ valor }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </main>
+    <footer class="footer py-4 text-center text-gray-400">
+        <p>&copy; 2024 Gradiente</p>
     </footer>
 </body>
 </html>
