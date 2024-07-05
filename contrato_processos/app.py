@@ -13,7 +13,8 @@ nlp = spacy.load("pt_core_news_sm")
 
 # Expressões regulares para captura de diferentes padrões
 regex_patterns = {
-    "DATAS": r"\b\d{1,2}/\d{1,2}/\d{2,4}\b|\b\d{4}/\d{4}\b|\b\d{3}/\d{3}\b|\bXXXX/\d{4}\b|\bXXX/\d{4}\b",
+    #padrão pra datas normais: \b\d{1,2}/\d{1,2}/\d{2,4}\b
+    "DATAS": r"\b\d{4}/\d{4}\b|\b\d{3}/\d{3}\b|\bXXXX/\d{4}\b|\bXXX/\d{4}\b|\bdata-base de XXXX/2023\b|\bdata-base de \d{4}/2023\b|\bSão Paulo, XX de mês de 2023\b|\bSão Paulo, \d{2} de mês de 2023\b",
     "VALOR": r"R\$\s?[\d\.,]+.*?\)|R\$ [X\s\.,]+\([X]+\)|R\$ [X\.\,]+ \(por extenso\)|R\$ [X\.\,]+ \(POR EXTENSO\)",
     "CNPJ": r"\b\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}\b|\b CNPJ/MF sob n. XXXXXXXXXXXXXX\b",
     "DOCUMENTOS": r"RG n.\s?\d{1,2}\.\d{3}\.\d{3}-\d{1}\b|\b\d{3}\.\d{3}\.\d{3}-\d{2}\b|\b CPF/MF n. XXXXXXXXXX\b|\b RG n. XXXXXXXXX\b",
