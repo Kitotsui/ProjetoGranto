@@ -23,22 +23,18 @@
             <h2 class="text-xl font-semibold">Resultados da Análise</h2>
             <p class="text-lg text-gray-400 mb-4">Arquivo: {{ result.filename }}</p>
         </div>
-        <div>
-            <h3 class="text-lg font-medium">CNPJs:</h3>
-            <ul class="list-disc pl-6 text-gray-400">
-                {% for cnpj in result.cnpjs %}
-                    <li>{{ cnpj }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="mt-4">
-            <h3 class="text-lg font-medium">Valores:</h3>
-            <ul class="list-disc pl-6 text-gray-400">
-                {% for valor in result.valores %}
-                    <li>{{ valor }}</li>
-                {% endfor %}
-            </ul>
-        </div>
+        {% for category, items in result.items() %}
+            {% if category != 'filename' %}
+                <div class="mt-4">
+                    <h3 class="text-lg font-medium">{{ category.replace('_', ' ').capitalize() }}:</h3>
+                    <ul class="list-disc pl-6 text-gray-400">
+                        {% for item in items %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endfor %}
     </main>
     <footer class="footer py-4 text-center text-gray-400">
         <p>&copy; 2024 Gradiente</p>

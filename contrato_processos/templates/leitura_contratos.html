@@ -10,7 +10,7 @@
     <header class="header">
         <div class="container">
             <div class="flex items-center space-x-8">
-                <h1 class="text-2xl font-bold">GRANTO</h1>
+                <h1 class="text-2xl font-bold">GRADIENTE</h1>
                 <nav class="navbar">
                     <a href="{{ url_for('index') }}">Página Inicial</a>
                     <a href="{{ url_for('leitura_contratos') }}">Leitura de Contratos</a>
@@ -32,6 +32,7 @@
                 <label for="file" id="file-label">Carregar um PDF</label>
                 <input type="file" name="file" id="file" class="hidden" required>
                 <p class="mt-2 text-gray-400">Ou arraste um arquivo</p>
+                <p id="file-name" class="mt-2 text-gray-400"></p>
             </div>
             <button type="submit" class="button">Faça o upload</button>
         </form>
